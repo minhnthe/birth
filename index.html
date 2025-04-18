@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Chúc Mừng Sinh Nhật Em Yêu 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top right, #ffe6f0, #ffe6cc);
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      color: #e60073;
+      font-size: 2.5rem;
+      margin-top: 20px;
+      animation: fadeInDown 2s ease-out;
+    }
+
+    p {
+      color: #333;
+      font-size: 1.2rem;
+      margin: 10px 20px;
+    }
+
+    img {
+      width: 200px;
+      max-width: 80%;
+      margin: 20px 0;
+      animation: popIn 2s ease-in-out;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #ff66a3;
+      border: none;
+      color: white;
+      font-size: 1rem;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #e60073;
+    }
+
+    .message {
+      display: none;
+      margin-top: 20px;
+      color: #ff3399;
+      font-size: 1.3rem;
+      animation: fadeIn 2s ease-in;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes popIn {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      button {
+        font-size: 0.9rem;
+      }
+    }
+
+    .petal {
+      position: fixed;
+      top: -10px;
+      width: 20px;
+      height: 20px;
+      background: url('https://i.imgur.com/HpRg7ul.png') no-repeat center;
+      background-size: contain;
+      animation: fall linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <audio autoplay loop>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
+  </audio>
+
+  <h1>Chúc Mừng Sinh Nhật Em Yêu 🎉</h1>
+  <img src="https://i.imgur.com/w1X3C4b.png" alt="Bánh sinh nhật" />
+  <p>Hôm nay là ngày đặc biệt nhất, vì đó là ngày em xuất hiện trên thế giới này 💖</p>
+  <button onclick="showMessage()">Bấm để nhận lời chúc ✨</button>
+  <div class="message" id="message">
+    Chúc em luôn xinh đẹp, hạnh phúc và mãi là người con gái anh yêu nhất trên đời 💘<br>
+    Cảm ơn em vì đã ở bên anh! 🎂💝
+  </div>
+
+  <script>
+    function showMessage() {
+      document.getElementById('message').style.display = 'block';
+    }
+
+    // Tạo hiệu ứng hoa rơi
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (3 + Math.random() * 3) + 's';
+      document.body.appendChild(petal);
+
+      setTimeout(() => {
+        petal.remove();
+      }, 6000);
+    }
+
+    setInterval(createPetal, 300);
+  </script>
+
+</body>
+</html>
